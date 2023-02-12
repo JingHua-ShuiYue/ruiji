@@ -1,5 +1,7 @@
 server:
   port: 80
+  tomcat:
+    connection-timeout: 60000
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,3 +16,6 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: assign_id
+ruiji:
+  images:
+    path: C:\Users\XM\Desktop\images\

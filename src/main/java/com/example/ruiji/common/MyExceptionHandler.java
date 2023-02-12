@@ -19,4 +19,10 @@ public class MyExceptionHandler {
         }
         return R.error("未知错误");
     }
+
+    @ExceptionHandler(CustomException.class)
+    private R<String> myCustomExceptionHandler(CustomException e){
+        log.error(e.getMessage());
+        return R.error(e.getMessage());
+    }
 }

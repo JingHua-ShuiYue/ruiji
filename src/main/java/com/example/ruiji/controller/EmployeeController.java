@@ -66,10 +66,10 @@ public class EmployeeController {
     private R<String> addEmployee(@RequestBody Employee employee, HttpServletRequest request) {
         log.info("创新新用户{}", employee.getUsername());
         employee.setPassword(DigestUtils.md5DigestAsHex("123456".getBytes())); //设置初始密码
-        employee.setCreateTime(LocalDateTime.now());
+       /* employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
         employee.setUpdateUser((Long) request.getSession().getAttribute("employee"));
-        employee.setCreateUser((Long) request.getSession().getAttribute("employee"));
+        employee.setCreateUser((Long) request.getSession().getAttribute("employee"));*/
         employeeService.save(employee);
         return R.success("添加成功");
     }
@@ -77,8 +77,8 @@ public class EmployeeController {
     @PutMapping("")
     private R<String> editEmployee(@RequestBody Employee employee, HttpServletRequest request) {
         log.info("更新员工信息");
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser((Long) request.getSession().getAttribute("employee"));
+       /* employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser((Long) request.getSession().getAttribute("employee"));*/
         employeeService.updateById(employee);
         return R.success("修改成功");
     }
